@@ -25,6 +25,7 @@ import mlflow
 from urllib.parse import urlparse
 
 import dagshub
+dagshub.init(repo_owner='jagannath-nayak', repo_name='network-security-', mlflow=True)
 
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
@@ -107,7 +108,7 @@ class ModelTrainer:
         y_test_pred=best_model.predict(X_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
         self.track_mlflow(best_model,classification_test_metric)
-        
+
 
         
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
@@ -116,6 +117,8 @@ class ModelTrainer:
 
         Network_Model=NetworkModel(model=best_model,preprocessor=preprocessor)
         save_object(self.model_trainer_config.trained_model_file_path,obj=NetworkModel)
+
+        save_object("final_model/model.pkl",best_model)
 
         ## Model Trainer Artifact
         model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
