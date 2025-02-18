@@ -1,0 +1,6 @@
+[2025-02-18 20:32:16,807] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-02-18 20:32:16,826] 107 dagshub - INFO - Accessing as jagannath-nayak
+[2025-02-18 20:32:17,382] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/jagannath-nayak/network-security- "HTTP/1.1 200 OK"
+[2025-02-18 20:32:17,921] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-02-18 20:32:17,937] 107 dagshub - INFO - Initialized MLflow to track repo "jagannath-nayak/network-security-"
+[2025-02-18 20:32:17,937] 107 dagshub - INFO - Repository jagannath-nayak/network-security- initialized!
